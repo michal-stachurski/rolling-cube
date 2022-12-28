@@ -1,38 +1,46 @@
 #include "state.h"
-#include "visited.h"
+#include "hash_table.h"
+
+#include <iostream>
 #include <queue>
 
-void bfs(state start, int depth = 0) {
-    
+state bfs(state start) {
     std::queue<state> Q;
     Q.push(start);
 
-    state game = Q.front();
     while (!Q.empty()) {
-        game = Q.front();
+        state game = Q.front();
         Q.pop();
-
         if (game.solved()) {
-            game.print();
-            break;
+            return game;
         }
-        visit(game);
-        for (state next : game.possible()) {
+        visited(game) = true;
+        for (direction d : {up, right, down, left}) {
+            state next = game.move(d);
             if (!visited(next)) {
-                prev[next] = game;
                 Q.push(next);
+                prev(next) = game;
+                prev_move(next) = d;
             }
         }
     }
-    while (!(game == start)) {
-        game.print();
-        game = prev[game];
-    }
+}
 
+void get_path(state start, state end) {
+    if (start == end) {
+        return;
+    }
+    std::cout << print(prev_move(end)) << std::endl;
+    // end.print();
+    get_path(start, prev(end));
 }
 
 int main() {
-    state s = state();
-    // s.print();
-    bfs(s);
+    state initial_pos;
+
+    initial_pos.read();
+    // initial_pos.print();
+    
+    state final_pos = bfs(initial_pos);
+    get_path(initial_pos, final_pos);
 }
