@@ -8,11 +8,11 @@ Rolling Cube is an optimal solver for one of [Simon Tatham's Portable Puzzle Col
 
 Here is example game
 
-![game](example/start.png)
+<img src="example/start.png" alt="game" width="256"/>
 
 And Solution
 
-![solution](example/solution.gif)
+<img src="example/solution.gif" alt="solution" width="256"/>
 
 ## Building
 
