@@ -1,7 +1,4 @@
-#include <cstddef>
-
 #include "../state.h"
-#include "../utils.h"
 
 size_t state::hash::operator()(const state& s) const {
     size_t mask = 0, bit = 0;

@@ -1,6 +1,16 @@
 #include "../cube.h"
-#include "../utils.h"
 #include <initializer_list>
+#include <utility>
+
+template<typename _Tp>
+void cyclic_swap(_Tp* array, int i, int j, int k, int l) {
+    _Tp tmp = std::move(array[l]);
+    array[l] = std::move(array[k]);
+    array[k] = std::move(array[j]);
+    array[j] = std::move(array[i]);
+    array[i] = std::move(tmp);
+}
+
 
 cube::cube(int _x, int _y) : x(_x), y(_y) {
     for (cube_side s : {U, D, R, L, F, B}) {

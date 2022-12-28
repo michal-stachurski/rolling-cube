@@ -11,11 +11,9 @@ std::unordered_map<state, direction, state::hash> __prev_move;
 bool& visited(const state& s) {
     return __visited[s];
 }
-
 state& prev(const state& s) {
     return __prev[s];
 }
-
 direction& prev_move(const state& s) {
     return __prev_move[s];
 }

@@ -4,6 +4,16 @@
 #include <iostream>
 #include <queue>
 
+const char* verbose(direction d) {
+    switch (d) {
+        case up: return "up";
+        case right: return "right";
+        case down: return "down";
+        case left: return "left";
+        default: return "none";
+    }
+}
+
 state bfs(state start) {
     std::queue<state> Q;
     Q.push(start);
@@ -24,23 +34,29 @@ state bfs(state start) {
             }
         }
     }
+    return state();
 }
 
-void get_path(state start, state end) {
+void backtrace(state start, state end, std::deque<direction>& moves) {
     if (start == end) {
         return;
     }
-    std::cout << print(prev_move(end)) << std::endl;
-    // end.print();
-    get_path(start, prev(end));
+    moves.push_front(prev_move(end));
+    backtrace(start, prev(end), moves);
 }
 
 int main() {
     state initial_pos;
-
     initial_pos.read();
-    // initial_pos.print();
     
+    std::cout << "Searching for solution..." << std::endl;
     state final_pos = bfs(initial_pos);
-    get_path(initial_pos, final_pos);
+
+    std::deque<direction> moves;
+    backtrace(initial_pos, final_pos, moves);
+
+    std::cout << "Found " << moves.size() << " moves solution:" << std::endl;
+    for (direction move : moves) {
+        std::cout << verbose(move) << std::endl;
+    }
 }

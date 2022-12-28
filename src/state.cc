@@ -1,5 +1,4 @@
 #include <iostream>
-#include "../utils.h"
 #include "../state.h"
 
 state::state() {
@@ -23,7 +22,7 @@ state state::move(direction d) const {
         return r;
     }
     r.cuboid.roll(d);
-    swap(r.cuboid.side[D], r.grid[r.cuboid.x][r.cuboid.y]);
+    std::swap(r.cuboid.side[D], r.grid[r.cuboid.x][r.cuboid.y]);
     return r;
 }
 bool state::solved() const {

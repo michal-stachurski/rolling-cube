@@ -5,6 +5,8 @@
 #include "cube.h"
 #include "enum.h"
 
+#define loop() for (int i = 0; i < 4; i++) for (int j = 0; j < 4; j++)
+
 class state {
 private:
     color grid[4][4];
