@@ -7,4 +7,4 @@ cube: main.o state.o cube.o hashing.o
 	g++ -c $< ${CXX_FLAGS} -o $@
 
 clean:
-	- rm cube *.o
+	- rm *.o
