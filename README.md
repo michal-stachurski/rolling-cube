@@ -2,7 +2,8 @@
 
 ## About
 
-Rolling Cube is an optimal solver for one of [Simon Tatham's Portable Puzzle Collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/) game, called Cube.
+Rolling Cube is an optimal solver for one of [Simon Tatham's Portable Puzzle Collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/) game, called Cube. Origin of the problem: [Paint a Cube by rolling it (Puzzle Algorithm)](https://cs.stackexchange.com/questions/156414/paint-a-cube-by-rolling-it-puzzle-algorithm).
+
 
 ## Example
 
